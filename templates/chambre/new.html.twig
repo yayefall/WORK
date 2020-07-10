@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrer Chambre{% endblock %}
+
+{% block body %}
+    <h1>Enregistrer Chambre</h1><hr>
+
+    {{ include('chambre/_form.html.twig') }}
+
+    <a href="{{ path('chambre_index') }}">Aller Liste Chambre</a>
+{% endblock %}

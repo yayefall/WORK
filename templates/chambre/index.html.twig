@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chambre index{% endblock %}
+
+{% block body %}
+    <h1>Chambre Enregistrée</h1><hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>NumBatiment</th>
+                <th>Occuped</th>
+                <th>Occuped2</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chambre in chambres %}
+            <tr>
+                <td>{{ chambre.id }}</td>
+                <td>{{ chambre.numero }}</td>
+                <td>{{ chambre.numBatiment }}</td>
+                <td>{{ chambre.occuped }}</td>
+                <td>{{ chambre.occuped2 }}</td>
+                <td>{{ chambre.type }}</td>
+                <td>
+                    <a href="{{ path('chambre_show', {'id': chambre.id}) }}">afficher</a>
+                    <a href="{{ path('chambre_edit', {'id': chambre.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('chambre_new') }}">Enregistrer chambre</a>
+{% endblock %}
